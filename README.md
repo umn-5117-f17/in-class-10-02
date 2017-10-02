@@ -1,36 +1,22 @@
-# Notes on file upload:
+# Notes on integrating bulma
 
-## server side (app.js)
+add from CDN:
 
-Add multer to support "multipart" form submission.  (why? <https://stackoverflow.com/a/4526286/293087>)
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.5.3/css/bulma.min.css">
 
-https://expressjs.com/en/resources/middleware/multer.html
+include base style:
 
-    npm install --save multer
+    <section class="section">
+      <div class="content">
+        {{{body}}}
+      </div>
+    </section>
 
-See app.js.  Need to require and configure multer (to upload to memory).
-There are many more options both on the client side and the server side
-to control the limits and capabilities of the file upload process.
+Changes:
 
-## client side (local.js)
+* http://bulma.io/documentation/elements/box/
+* http://bulma.io/documentation/components/message/
 
-There is a lot of old information on the web. It's pretty easy to upload
-files these days.  This is one good post: <https://stackoverflow.com/a/8244082/293087>
-
-The html form won't work right for file uploads without setting `enctype`:
-
-    <form action="/upload-file-form" enctype="multipart/form-data" method="post">
-
-<https://www.w3schools.com/TagS/att_form_enctype.asp>
-
-jquery can access the file object:
-
-    var f = $('#theinputfield')[0].files[0];
-
-To create the appropriate object to send to the server:
-
-    var fd = new FormData();
-    fd.append('ajaxfile', f);
-
-Then this string ('ajaxfile') must match up with the string we configure in
-our node handler code.
+* http://bulma.io/documentation/elements/button/
+* http://bulma.io/documentation/form/file/
