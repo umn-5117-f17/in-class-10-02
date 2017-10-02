@@ -1,8 +1,9 @@
 $(function() {
 
   $('#theinputfield').change(function() {
-    console.log('picked file',
-    $('#theinputfield')[0].files[0]);
+    console.log('picked file', $('#theinputfield')[0].files[0]);
+
+    $('#fn').html( $('#theinputfield')[0].files[0].name );
   });
 
   // $('#theform').submit(function(e) {
